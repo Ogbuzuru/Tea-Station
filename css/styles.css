@@ -130,10 +130,7 @@ p {
   width: 85vw;
   margin: 0 auto;
 }
-/* navbar styling */
-nav {
-}
-/* end of navbar */
+
 
 /* header styling */
 header {
@@ -143,6 +140,7 @@ header {
     url("../images/main-bcg.jpeg") center/cover no-repeat fixed;
   position: relative;
   /* animation */
+  overflow-x: hidden;
 }
 .banner {
   text-align: center;
@@ -155,7 +153,7 @@ header {
   font-family: var(--ff-secondary);
   color: var(--primay-light);
   line-height: 1.5;
-  /* animation */
+  animation: move 5s ease-in-out 1 ;
 }
 .banner h1 {
   text-transform: uppercase;
@@ -163,13 +161,67 @@ header {
   margin-bottom: 2rem;
   color: var(--grey-color-10);
   line-height: 60px;
-  /* animation */
+  animation: moveright 5s ease-in-out 1; 
 }
+
 .banner-button {
   outline: var(--primay-light) 3px solid;
   outline-offset: 0.25rem;
   background: var(--primay-light);
   font-size: 1.25rem;
+  animation: button 5s  ease-in-out 1;
+}
+/* banner animation */
+@keyframes button {
+  0%{
+    transform: scale(1);
+    opacity: 0;
+  }
+  50%{
+    transform: scale(2);
+    opacity: 0.5;
+  }
+  100%{
+    transform: scale(1);
+    opacity: 2;
+  }
+}
+
+@keyframes move {
+  0%{
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  50%{
+    transform: translateX(-200px);
+    opacity: 0.5;
+  }
+  75%{
+    transform: translateX(50px);
+    opacity: 0.75;
+  }
+  100%{
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes moveright {
+  0%{
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  50%{
+    transform: translateX(200px);
+    opacity: 0.5;
+  }
+  75%{
+    transform: translateX(-50px);
+    opacity: 0.75;
+  }
+  100%{
+    transform: translateX(0px);
+    opacity: 1;
+  }
 }
 /* navbutton stylying */
 
@@ -201,11 +253,13 @@ header {
   right: 0;
   bottom: 0;
   background:var(--grey-color-10);
-  z-index: 2;
+  z-index:2 ;
   box-shadow: 2px 0 2px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
+  transition: var(--transition);
 }
-.navbarshow{
-
+.showNav{
+  transform:translate(0)
 }
 .navbar-header{
   text-align:right;
@@ -242,7 +296,6 @@ header {
   .navbar{
     max-width: 20rem;
     width: 30vw;
-    padding-left: 1.5rem; 
   }
 }
 /* end of navbar */
